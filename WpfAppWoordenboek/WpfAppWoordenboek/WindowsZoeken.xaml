@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfAppWoordenboek.WindowsZoeken"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppWoordenboek"
+        mc:Ignorable="d"
+        Title="WindowsZoeken" Height="450" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Bestand">
+                <MenuItem x:Name="closeMenuItem" Header="Sluiten" Click="closeMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.75*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Content="Engelse term: "
+                   HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="englishTextBox" Grid.Column="1" Grid.Row="0" Margin="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="1" Content="Nederlandse term: "
+                   HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="dutchTextBox" Grid.Column="1" Grid.Row="1" Margin="30" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Button x:Name="searchButton" Grid.Column="0" Grid.Row="2" Margin="20" Content="Zoeken" Click="searchButton_Click"/>
+            <Button x:Name="checkButton" Grid.Column="1" Grid.Row="2" Margin="20" Content="Controle" Click="checkButton_Click"/>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -8,7 +8,7 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("WpfAppWoordenboek")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Dit is een test description.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("PXL")]
 [assembly: AssemblyProduct("WpfAppWoordenboek")]
