@@ -20,9 +20,8 @@ namespace ClassLib
 
         static WoordenboekData()
         {
-            string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            string relativePath = "ICTWoordenboek.txt";
-            string path = System.IO.Path.Combine(basePath, relativePath);
+            string relativePath = @"..\..\ICTWoordenboek.txt";
+            string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
             string[] content = File.ReadAllLines(path);
 
