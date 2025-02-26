@@ -31,22 +31,6 @@ namespace WpfAppWoordenboek
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            string relativePath = "ICTWoordenboek.txt";
-            string path = System.IO.Path.Combine(basePath, relativePath);
-
-            string[] content = File.ReadAllLines(path);
-
-            for (int i = 0; i < content.Length; i++)
-            {
-                if (content[i].Contains("|"))
-                {
-                    content[i] = content[i].Replace("|", " - ");
-                    string englishWord = content[i].Substring(0, content[i].IndexOf(" -"));
-                    string dutchWord = content[i].Substring(content[i].LastIndexOf("- ") + 2);
-                    Wachtwoorden.AddWord(englishWord, dutchWord);
-                }
-            }
             ShowWordsInListBox();
         }
 
@@ -54,7 +38,7 @@ namespace WpfAppWoordenboek
         {
             wordsListBox.Items.Clear();
 
-            foreach (KeyValuePair<string, string> kvp in Wachtwoorden.Dictionary)
+            foreach (KeyValuePair<string, string> kvp in WoordenboekData.Dictionary)
             {
                 ListBoxItem item = new ListBoxItem();
                 item.Content = $"{kvp.Key} - {kvp.Value}";
@@ -70,12 +54,12 @@ namespace WpfAppWoordenboek
             {
                 if (!String.IsNullOrEmpty(englishTextBox.Text) 
                     && !String.IsNullOrEmpty(dutchTextBox.Text) 
-                    && !Wachtwoorden.Dictionary.ContainsKey(englishTextBox.Text))
+                    && !WoordenboekData.Dictionary.ContainsKey(englishTextBox.Text))
                 {
-                    Wachtwoorden.AddWord(englishTextBox.Text, dutchTextBox.Text);
+                    WoordenboekData.AddWord(englishTextBox.Text, dutchTextBox.Text);
                     ShowWordsInListBox();
                 }
-                else if (Wachtwoorden.Dictionary.ContainsKey(englishTextBox.Text))
+                else if (WoordenboekData.Dictionary.ContainsKey(englishTextBox.Text))
                 {
                     MessageBox.Show("Can't have the same key twice!");
                 }
@@ -90,7 +74,7 @@ namespace WpfAppWoordenboek
                     string selectedContent = selectedItem.Content.ToString();
                     string englishWord = selectedContent.Substring(0, selectedContent.IndexOf(" -"));
                     wordsListBox.Items.Remove(selectedItem);
-                    Wachtwoorden.DeleteWord(englishWord);
+                    WoordenboekData.DeleteWord(englishWord);
 
                     ShowWordsInListBox();
                 }

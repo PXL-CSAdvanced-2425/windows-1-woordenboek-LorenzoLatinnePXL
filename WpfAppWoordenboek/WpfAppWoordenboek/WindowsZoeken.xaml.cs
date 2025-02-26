@@ -20,7 +20,7 @@ namespace WpfAppWoordenboek
     /// </summary>
     public partial class WindowsZoeken : Window
     {
-        List<string> englishWords = Wachtwoorden.Dictionary.Keys.ToList();
+        List<string> englishWords = WoordenboekData.Dictionary.Keys.ToList();
         Random rnd = new Random();
 
         public WindowsZoeken(MainWindow window)
@@ -36,28 +36,13 @@ namespace WpfAppWoordenboek
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
             englishTextBox.Text = englishWords[rnd.Next(0, englishWords.Count)];
-
-            //int randomNumber = rnd.Next(0, Wachtwoorden.Dictionary.Keys.Count);
-            //string wordToGuess = "";
-            //int counter = 0;
-
-            //foreach (string englishWord in Wachtwoorden.Dictionary.Keys)
-            //{
-            //    if (counter == randomNumber)
-            //    {
-            //        wordToGuess = englishWord;
-            //        break;
-            //    }
-            //    counter++;
-            //}
-            //englishTextBox.Text = wordToGuess;
         }
 
         private void checkButton_Click(object sender, RoutedEventArgs e)
         {
             if (!String.IsNullOrEmpty(englishTextBox.Text) && !String.IsNullOrEmpty(dutchTextBox.Text))
             {
-                if (Wachtwoorden.Dictionary[englishTextBox.Text] == dutchTextBox.Text)
+                if (WoordenboekData.Dictionary[englishTextBox.Text] == dutchTextBox.Text)
                 {
                     MessageBox.Show("Correct geraden!", "Correct!", MessageBoxButton.OK, MessageBoxImage.Information);
                     dutchTextBox.Clear();
@@ -65,7 +50,7 @@ namespace WpfAppWoordenboek
                 }
                 else
                 {
-                    MessageBox.Show($"Dit is niet correct geraden! Het juiste woord was: {Wachtwoorden.Dictionary[englishTextBox.Text].ToUpper()}", "Wrong!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Dit is niet correct geraden! Het juiste woord was: {WoordenboekData.Dictionary[englishTextBox.Text].ToUpper()}", "Wrong!", MessageBoxButton.OK, MessageBoxImage.Error);
                     dutchTextBox.Clear();
                 }
             }
