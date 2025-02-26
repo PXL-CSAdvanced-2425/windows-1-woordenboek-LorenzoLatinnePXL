@@ -1,0 +1,18 @@
+memory|geheugen
+file|bestand
+operating system|besturingssysteem
+clipboard|klembord
+hacker|cyberboef
+application|toepassing
+driver|stuurprogramma
+font|lettertype
+pixel|beeldschermpunt
+spamming|e-mailreclame
+RAM|werkgeheugen
+router|dataverkeerregelaar
+URL|webadres
+vulnerability|veiligingslek
+selfie|ikkie
+comment|commentaar
+label|etiket
+database|databank
